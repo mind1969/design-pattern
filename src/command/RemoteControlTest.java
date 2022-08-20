@@ -50,5 +50,13 @@ public class RemoteControlTest {
         remote.onButtonWasPushed(0);
         remote.offButtonWasPushed(0);
         remote.undoButtonWasPushed();
+
+        CeilingFan ceilingFan = new CeilingFan("Living room");
+        CeilingFanHighCommand ceilingFanHighCommand = new CeilingFanHighCommand(ceilingFan);
+        CeilingFanOffCommand ceilingFanOffCommand = new CeilingFanOffCommand(ceilingFan);
+
+        remote.setCommand(4, ceilingFanHighCommand, ceilingFanOffCommand);
+        remote.onButtonWasPushed(4);
+        remote.undoButtonWasPushed();
     }
 }
